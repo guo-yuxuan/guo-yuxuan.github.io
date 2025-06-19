@@ -21,6 +21,6 @@ authors:
   - Xin Tong
 
 links:
-  Paper: https://github.com/luost26/academic-homepage
-  Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
+  Paper: https://dl.acm.org/doi/abs/10.1145/3706599.3720247
+  #Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
 ---
