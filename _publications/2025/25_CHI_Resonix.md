@@ -1,6 +1,6 @@
 ---
 title:          "Resonix: Prototyping VR for Fostering Remote Collaboration in Sound Art Curation"
-date:           2024-05-24 00:01:00 +0800
+date:           2025-05-24 00:01:00 +0800
 selected:       true
 pub:            "Proceedings of the Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI LBW)"
 # pub_pre:        "Submitted to "
