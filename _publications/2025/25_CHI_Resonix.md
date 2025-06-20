@@ -10,7 +10,7 @@ pub_date:       "2025"
 
 # abstract: >-
 #   Photo by Pineapple Supply Co. on Unsplash. Please put a tldr (too-long-didnt-read, 1~2 sentences) of your publication here. It is not recommended to put the actual abstract here because it is usually too long to fit in. $\LaTeX$ is supported. $a=b+c$.
-cover:          /assets/images/covers/cover3.jpg
+cover:          /assets/images/covers/25_CHI_Resonix.png
 authors:
   - Zijun Wan
   - Yuxuan Guo
@@ -21,6 +21,7 @@ authors:
   - Xin Tong
 
 links:
-  Paper: https://dl.acm.org/doi/abs/10.1145/3706599.3720247
+  Paper: /assets/papers/25_CHI_Resonix.pdf
+  Video: https://www.youtube.com/watch?v=Qo7UpzZh-zg
   #Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
 ---
