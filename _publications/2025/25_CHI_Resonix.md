@@ -18,7 +18,7 @@ authors:
   - Haowei Xiong
   - Xudong Cai
   - Fanjing Meng
-  - Xin Tong
+  - Xin Tong#
 
 links:
   Paper: /assets/papers/25_CHI_Resonix.pdf

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ page.title }}</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ page.description }}">
+    <meta name="author" content="{% if page.authors %}{{ page.authors | join: ', ' }}{% endif %}">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #0066cc;
+            --accent-color: #e74c3c;
+            --text-color: #2d2d2d;
+            --text-light: #666;
+            --text-lighter: #999;
+            --bg-color: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --border-color: #e0e0e0;
+            --link-color: #0066cc;
+            --link-hover: #004499;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background: var(--bg-secondary);
+            font-size: 16px;
+        }
+        
+        /* Main Container */
+        
+        .blog-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+        
+        /* Card Layout System */
+        
+        .card-row {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .card-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .card-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        /* Card Styles */
+        
+        .content-card {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 50px 60px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Card Width Control */
+        
+        .card-full {
+            width: 100%;
+        }
+        
+        .card-half {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .card-third {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .card-two-thirds {
+            flex: 2;
+            min-width: 400px;
+        }
+        
+        .card-quarter {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        /* 固定宽度卡片 */
+        
+        .card-narrow {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card-medium {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .card-wide {
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Custom Card Classes - 可在 Markdown 中使用 */
+        
+        .article-content .custom-card,
+        .article-content .card {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 30px 40px;
+            margin: 30px -40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-content .card-compact {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 20px 30px;
+            margin: 25px -40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-content .card-highlight {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-radius: 8px;
+            padding: 30px 40px;
+            margin: 30px -40px;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        
+        .article-content .card-bordered {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 30px 40px;
+            margin: 30px -40px;
+            border: 2px solid var(--border-color);
+        }
+        
+        .article-content .card-section {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 30px 40px;
+            margin: 30px -40px;
+        }
+        
+        /* Article Header */
+        
+        .article-header {
+            margin-bottom: 40px;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            word-wrap: break-word;
+        }
+        
+        .article-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        
+        /* Centered Header (no card) */
+        
+        .centered-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            padding: 0 40px;
+        }
+        
+        .centered-header .article-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .centered-header .article-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .centered-header .article-authors {
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .centered-header .article-meta {
+            justify-content: center;
+            border: none;
+            padding: 0;
+        }
+        
+        /* Centered Cover (no card) */
+        
+        .centered-cover {
+            text-align: center;
+            margin: 50px auto;
+            max-width: 1000px;
+            padding: 0 40px;
+        }
+        
+        .centered-cover img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        /* Authors Section */
+        
+        .article-authors {
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .author-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .author-name {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+        
+        .author-affiliation {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 15px 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .meta-item i {
+            color: var(--text-lighter);
+            font-size: 14px;
+        }
+        /* Cover Image (Teaser) */
+        
+        .teaser-card {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 0;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .article-cover {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+        }
+        
+        /* Links Section */
+        
+        .links-card {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 30px 40px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-links h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .article-links-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0;
+            background: none;
+            color: var(--link-color);
+            text-decoration: underline;
+            border: none;
+            transition: color 0.2s ease;
+            font-weight: 400;
+            font-size: 16px;
+        }
+        
+        .link-button:hover {
+            color: var(--link-hover);
+            text-decoration: underline;
+        }
+        
+        .link-button i {
+            font-size: 14px;
+        }
+        /* Article Content */
+        
+        .article-content {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin: 40px 0;
+        }
+        
+        .article-content>*:first-child {
+            margin-top: 0;
+        }
+        
+        .article-content h1,
+        .article-content h2,
+        .article-content h3,
+        .article-content h4,
+        .article-content h5,
+        .article-content h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 45px 0 20px 0;
+            line-height: 1.4;
+        }
+        
+        .article-content h2 {
+            font-size: 1.75rem;
+            margin-top: 50px;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin-top: 40px;
+        }
+        
+        .article-content h4 {
+            font-size: 1.2rem;
+            margin-top: 35px;
+        }
+        
+        .article-content p {
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .article-content a {
+            color: var(--link-color);
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+        
+        .article-content a:hover {
+            color: var(--link-hover);
+        }
+        
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 30px auto;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        .article-content ul,
+        .article-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .article-content li {
+            margin: 8px 0;
+        }
+        
+        .article-content blockquote {
+            margin: 30px 0;
+            padding: 20px 25px;
+            border-left: 4px solid var(--border-color);
+            background: var(--bg-secondary);
+            font-style: italic;
+            color: var(--text-light);
+        }
+        
+        .article-content blockquote p {
+            margin: 8px 0;
+        }
+        
+        .article-content code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            background: var(--bg-secondary);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+        
+        .article-content pre {
+            background: #f6f8fa;
+            color: #24292e;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 30px 0;
+            border: 1px solid var(--border-color);
+            line-height: 1.6;
+        }
+        
+        .article-content pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+            border: none;
+            font-size: 0.9rem;
+        }
+        
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 15px;
+        }
+        
+        .article-content table th,
+        .article-content table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        
+        .article-content table th {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .article-content table tr:hover {
+            background: var(--bg-secondary);
+        }
+        
+        .article-content hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 40px 0;
+        }
+        
+        /* Video Container */
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin: 30px 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .video-wrapper iframe,
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Image Gallery */
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .image-gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin: 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .image-gallery img:hover {
+            opacity: 0.9;
+        }
+        
+        /* Article Footer */
+        
+        .article-footer {
+            text-align: center;
+            margin-top: 0;
+        }
+        
+        .footer-card {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer-updated {
+            color: var(--text-lighter);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            font-size: 15px;
+        }
+        
+        .footer-back:hover {
+            background: var(--link-hover);
+            text-decoration: none;
+            color: white;
+        }
+        
+        /* Page Footer */
+        
+        .page-footer {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 40px;
+            text-align: center;
+            color: var(--text-lighter);
+            font-size: 13px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .page-footer p {
+            margin: 0;
+        }
+        
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .blog-main {
+                padding: 20px 15px 60px;
+            }
+            
+            .content-card {
+                padding: 30px 25px;
+                border-radius: 6px;
+            }
+            
+            .links-card {
+                padding: 20px 25px;
+                border-radius: 6px;
+            }
+            
+            /* 移动端卡片布局 */
+            .card-row,
+            .card-grid-2,
+            .card-grid-3 {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            
+            .card-half,
+            .card-third,
+            .card-two-thirds,
+            .card-quarter {
+                width: 100%;
+                min-width: 100%;
+            }
+            
+            .card-narrow,
+            .card-medium,
+            .card-wide {
+                max-width: 100%;
+            }
+            
+            /* Centered Header 响应式 */
+            .centered-header {
+                padding: 0 20px;
+            }
+            
+            .centered-header .article-title {
+                font-size: 2rem;
+            }
+            
+            .centered-header .article-subtitle {
+                font-size: 1rem;
+            }
+            
+            .centered-cover {
+                padding: 0 20px;
+                margin: 30px auto;
+            }
+            
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-subtitle {
+                font-size: 1rem;
+            }
+            
+            .article-authors {
+                gap: 20px;
+            }
+            
+            .article-meta {
+                gap: 15px;
+                font-size: 13px;
+            }
+            
+            .article-content {
+                font-size: 15px;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .article-content h3 {
+                font-size: 1.25rem;
+            }
+            
+            .article-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .article-links-grid {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .footer-card {
+                padding: 25px 20px;
+                border-radius: 6px;
+            }
+            
+            /* Custom Cards 响应式 */
+            .article-content .custom-card,
+            .article-content .card,
+            .article-content .card-compact,
+            .article-content .card-highlight,
+            .article-content .card-bordered,
+            .article-content .card-section {
+                margin-left: -25px;
+                margin-right: -25px;
+                padding: 20px 25px;
+            }
+            
+            .page-footer {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Print Styles */
+        
+        @media print {
+            .article-footer,
+            .page-footer {
+                display: none;
+            }
+            
+            body {
+                background: white;
+            }
+            
+            .article-content {
+                font-size: 12pt;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main Content -->
+    <main class="blog-main">
+        <article>
+            {% assign card_layout = page.card_layout | default: "separated" %}
+            
+            {% if card_layout == "single" %}
+                <!-- 单一大卡片模式：所有内容在一个卡片中 -->
+                <div class="content-card">
+                    <header class="article-header">
+                        <h1 class="article-title">{{ page.title }}</h1>
+                        {% if page.description %}
+                        <p class="article-subtitle">{{ page.description }}</p>
+                        {% endif %}
+                        {% if page.show_authors != false %}
+                        {% if page.authors_with_affiliations %}
+                        <div class="article-authors">
+                            {% for author in page.authors_with_affiliations %}
+                            <div class="author-item">
+                                <div class="author-name">{{ author.name }}</div>
+                                {% if page.show_affiliations != false %}
+                                <div class="author-affiliation">{{ author.affiliation }}</div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% elsif page.authors %}
+                        <div class="article-authors">
+                            {% for author in page.authors %}
+                            <div class="author-item">
+                                <div class="author-name">{{ author }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                    </header>
+                    
+                    {% if page.cover %}
+                    <img src="{{ page.cover | relative_url }}" alt="Teaser Image" class="article-cover" style="margin: 35px 0;">
+                    {% endif %}
+                    
+                    {% if page.links %}
+                    <div class="article-links" style="margin: 35px 0; padding: 0;">
+                        <h4>Links</h4>
+                        <div class="article-links-grid">
+                            {% for link in page.links %}
+                            {% if link[1].url %}
+                            <a href="{{ link[1]['url'] }}" target="{{ link[1]['target'] | default: '_blank' }}" class="link-button">{{ link[0] }}</a>
+                            {% else %}
+                            <a href="{{ link[1] }}" target="_blank" class="link-button">{{ link[0] }}</a>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="article-content">
+                        {{ content }}
+                    </div>
+                </div>
+                
+            {% elsif card_layout == "compact" %}
+                <!-- 紧凑模式：标题+封面+链接合并，内容独立 -->
+                <div class="content-card">
+                    <header class="article-header">
+                        <h1 class="article-title">{{ page.title }}</h1>
+                        {% if page.description %}
+                        <p class="article-subtitle">{{ page.description }}</p>
+                        {% endif %}
+                        {% if page.show_authors != false %}
+                        {% if page.authors_with_affiliations %}
+                        <div class="article-authors">
+                            {% for author in page.authors_with_affiliations %}
+                            <div class="author-item">
+                                <div class="author-name">{{ author.name }}</div>
+                                {% if page.show_affiliations != false %}
+                                <div class="author-affiliation">{{ author.affiliation }}</div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% elsif page.authors %}
+                        <div class="article-authors">
+                            {% for author in page.authors %}
+                            <div class="author-item">
+                                <div class="author-name">{{ author }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                    </header>
+                    
+                    {% if page.cover %}
+                    <img src="{{ page.cover | relative_url }}" alt="Teaser Image" class="article-cover" style="margin: 35px -60px; width: calc(100% + 120px); max-width: calc(100% + 120px);">
+                    {% endif %}
+                    
+                    {% if page.links %}
+                    <div class="article-links" style="margin-top: 35px; padding: 0;">
+                        <h4>Links</h4>
+                        <div class="article-links-grid">
+                            {% for link in page.links %}
+                            {% if link[1].url %}
+                            <a href="{{ link[1]['url'] }}" target="{{ link[1]['target'] | default: '_blank' }}" class="link-button">{{ link[0] }}</a>
+                            {% else %}
+                            <a href="{{ link[1] }}" target="_blank" class="link-button">{{ link[0] }}</a>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="content-card">
+                    <div class="article-content">
+                        {{ content }}
+                    </div>
+                </div>
+                
+            {% elsif card_layout == "flexible" %}
+                <!-- 灵活模式：标题封面居中无卡片，正文自由控制 -->
+                <header class="centered-header">
+                    <h1 class="article-title">{{ page.title }}</h1>
+                    {% if page.description %}
+                    <p class="article-subtitle">{{ page.description }}</p>
+                    {% endif %}
+                    {% if page.authors_with_affiliations %}
+                    <div class="article-authors">
+                        {% for author in page.authors_with_affiliations %}
+                        <div class="author-item">
+                            <div class="author-name">{{ author.name }}</div>
+                            <div class="author-affiliation">{{ author.affiliation }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% elsif page.authors %}
+                    <div class="article-authors">
+                        {% for author in page.authors %}
+                        <div class="author-item">
+                            <div class="author-name">{{ author }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </header>
+
+                {% if page.cover %}
+                <div class="centered-cover">
+                    <img src="{{ page.cover | relative_url }}" alt="Teaser Image">
+                </div>
+                {% endif %}
+
+                {% if page.links %}
+                <div class="centered-header" style="margin-bottom: 50px;">
+                    <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 15px;">Links</h4>
+                    <div class="article-links-grid" style="justify-content: center;">
+                        {% for link in page.links %}
+                        {% if link[1].url %}
+                        <a href="{{ link[1]['url'] }}" target="{{ link[1]['target'] | default: '_blank' }}" class="link-button">{{ link[0] }}</a>
+                        {% else %}
+                        <a href="{{ link[1] }}" target="_blank" class="link-button">{{ link[0] }}</a>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- 正文内容：不包裹卡片，由用户自由控制 -->
+                <div class="article-content">
+                    {{ content }}
+                </div>
+                
+            {% else %}
+                <!-- 默认模式（separated）：每个部分独立卡片 -->
+                <div class="content-card">
+                    <header class="article-header">
+                        <h1 class="article-title">{{ page.title }}</h1>
+                        {% if page.description %}
+                        <p class="article-subtitle">{{ page.description }}</p>
+                        {% endif %}
+                        {% if page.show_authors != false %}
+                        {% if page.authors_with_affiliations %}
+                        <div class="article-authors">
+                            {% for author in page.authors_with_affiliations %}
+                            <div class="author-item">
+                                <div class="author-name">{{ author.name }}</div>
+                                {% if page.show_affiliations != false %}
+                                <div class="author-affiliation">{{ author.affiliation }}</div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% elsif page.authors %}
+                        <div class="article-authors">
+                            {% for author in page.authors %}
+                            <div class="author-item">
+                                <div class="author-name">{{ author }}</div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% endif %}
+                    </header>
+                </div>
+
+                {% if page.cover %}
+                <div class="teaser-card">
+                    <img src="{{ page.cover | relative_url }}" alt="Teaser Image" class="article-cover">
+                </div>
+                {% endif %}
+
+                {% if page.links %}
+                <div class="links-card">
+                    <div class="article-links">
+                        <h4>Links</h4>
+                        <div class="article-links-grid">
+                            {% for link in page.links %}
+                            {% if link[1].url %}
+                            <a href="{{ link[1]['url'] }}" target="{{ link[1]['target'] | default: '_blank' }}" class="link-button">{{ link[0] }}</a>
+                            {% else %}
+                            <a href="{{ link[1] }}" target="_blank" class="link-button">{{ link[0] }}</a>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="content-card">
+                    <div class="article-content">
+                        {{ content }}
+                    </div>
+                </div>
+            {% endif %}
+        </article>
+    </main>
+
+    <!-- Page Footer -->
+    <footer class="page-footer">
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.data.profile.navbar_name }}. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // KaTeX Math Rendering
+            renderMathInElement(document.body, {
+                delimiters: [{
+                    left: '$$',
+                    right: '$$',
+                    display: true
+                }, {
+                    left: '$',
+                    right: '$',
+                    display: false
+                }],
+                throwOnError: false
+            });
+
+            // Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Image Lazy Loading
+            if ('loading' in HTMLImageElement.prototype) {
+                const images = document.querySelectorAll('img[loading="lazy"]');
+                images.forEach(img => {
+                    img.src = img.dataset.src;
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

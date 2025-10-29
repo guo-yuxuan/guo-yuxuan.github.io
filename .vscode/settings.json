@@ -1,0 +1,20 @@
+{
+  "files.associations": {
+    "*.html": "liquid"
+  },
+  "[liquid]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "[html]": {
+    "editor.formatOnSave": false
+  },
+  "[jekyll]": {
+    "editor.formatOnSave": false
+  },
+  "editor.formatOnSave": true,
+  "beautify.ignore": [
+    "**/*.html"
+  ]
+}
+
