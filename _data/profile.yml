@@ -8,7 +8,7 @@ navbar_name: "Yuxuan Guo"
 # - name: Position 2 without logo
 
 email: "yuxuanguo@msn.com"
-cv_link: link-to-your-cv-file
+cv_link: /assets/YuxuanGuoCV.pdf
 #gscholar: xFmQpf4AAAAJ  # This is an example, replace it with your own Google Scholar ID
 #github: your_github_id
 #twitter: your_twitter_id  # Do not include the '@' symbol
