@@ -7,8 +7,7 @@ pub_date:       "2022"
 cover:          /assets/images/projects/Currency Design/cover.jpg
 authors:
   - Yuxuan Guo
-  - Chloé Keeble
-  - Qin Jin
+
 
 # 启用博客链接
 has_blog:       true
