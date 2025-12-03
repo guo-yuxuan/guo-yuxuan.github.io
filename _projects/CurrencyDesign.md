@@ -2,7 +2,7 @@
 layout: blog
 title: "Currency Design"
 description: "Course Project - DESI11179 Introduction to Digital Design (Fall 2022, UoE)"
-cover: /assets/images/projects/currency design/cover.jpg
+cover: /assets/images/projects/Currency Design/cover.jpg
 authors_with_affiliations:
   - name: Yuxuan Guo
 
