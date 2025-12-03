@@ -11,7 +11,7 @@ authors:
 
 # 启用博客链接
 has_blog:       true
-blog_url:       /projects/CurrencyDesign/
+blog_url:       /projects/currencydesign/
 
 links:
   Demo: https://www.s2307954.edinburgh.domains/

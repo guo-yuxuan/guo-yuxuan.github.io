@@ -19,7 +19,7 @@ authors:
   
 # 启用博客链接
 has_blog:       true
-blog_url:       /projects/EchoesAbsences/
+blog_url:       /projects/echoesabsences/
 
 links:
   Peport: /assets/reports/Report_Echoes & Absences.pdf

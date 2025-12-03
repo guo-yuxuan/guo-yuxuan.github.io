@@ -12,7 +12,7 @@ authors:
 
 # 启用博客链接
 has_blog:       true
-blog_url:       /projects/MoneyMaties/
+blog_url:       /projects/moneymaties/
 
 links:
   Demo: https://purplejam.s2307954.edinburgh.domains/fatfree/submission2/
