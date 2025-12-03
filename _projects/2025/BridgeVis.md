@@ -13,7 +13,7 @@ authors:
 
 # 启用博客链接
 has_blog:       false
-blog_url:       /projects/BridgeVis/
+blog_url:       /projects/bridgevis/
 
 links:
 

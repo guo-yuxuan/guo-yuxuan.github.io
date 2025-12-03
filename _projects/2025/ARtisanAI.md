@@ -4,7 +4,7 @@ Design-to-Craft"
 date:           2025-3-24 00:01:00 +0800
 selected:       true
 description:    
-pub_date:       "2025"
+pub_date:       "(Under Review)"
 cover:          /assets/images/projects/ARtisanAI/cover.png
 authors:
   - Zijun Wan 
@@ -15,7 +15,7 @@ authors:
 
 # 启用博客链接
 has_blog:       true
-blog_url:       /projects/ARtisanAI/
+blog_url:       /projects/artisanai/
 
 links:
 
