@@ -1,6 +1,5 @@
 ---
-title:          "ARtisanAI:An AR and AI-Enhanced Authoring Tool for Ceramic
-Design-to-Craft"
+title:          "ARtisanAI: An AR and AI-Enhanced Experience for Ceramic Design-to-Craft"
 date:           2026-3-24 00:01:00 +0800
 selected:       true
 pub:            " Extended Abstracts of the 2026 CHI Conference on Human Factors in Computing Systems (CHI EA ’26)"
