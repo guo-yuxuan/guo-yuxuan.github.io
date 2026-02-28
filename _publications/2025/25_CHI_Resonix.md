@@ -3,6 +3,7 @@ title:          "Resonix: Prototyping VR for Fostering Remote Collaboration in S
 date:           2025-05-24 00:01:00 +0800
 selected:       true
 pub:            "Proceedings of the Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI LBW)"
+pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Poster</br></span>'
 # pub_pre:        "Submitted to "
 # pub_post:       'Under review.'
 # pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Spotlight</span>'

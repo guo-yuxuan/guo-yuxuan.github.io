@@ -7,7 +7,7 @@ description:    "This project integrates interactive 2D charts into immersive VR
 pub:           
 # pub_pre:        "Submitted to "
 pub_post:       'Under review.'
-#pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Poster</span>'
+#pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Poster</br></span>'
 pub_date:       
 cover: 
 authors:
