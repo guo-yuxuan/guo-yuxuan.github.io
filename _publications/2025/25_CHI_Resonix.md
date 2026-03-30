@@ -2,7 +2,7 @@
 title:          "Resonix: Prototyping VR for Fostering Remote Collaboration in Sound Art Curation"
 date:           2025-05-24 00:01:00 +0800
 selected:       true
-pub:            " Proceedings of the Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI LBW)"
+pub:            " Extended Abstracts of the CHIConference on Human Factors in Computing Systems (CHI EA ’25)"
 pub_pre:       ' <span class="badge badge-pill badge-publication badge-success">Poster</span>'
 # pub_pre:        "Submitted to "
 # pub_post:       'Under review.'
@@ -22,7 +22,8 @@ authors:
   - Xin Tong#
 
 links:
-  Paper: /assets/papers/25_CHI_Resonix.pdf
+  DOI: https://doi.org/10.1145/3706599.3720247
+  #Paper: /assets/papers/25_CHI_Resonix.pdf
   Video: https://www.youtube.com/watch?v=Qo7UpzZh-zg
   #Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
 ---

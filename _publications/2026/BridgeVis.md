@@ -20,5 +20,6 @@ has_blog:       false
 blog_url:       /projects/bridgevis/
 
 links:
+ Paper: /assets/papers/VI_BridgeVis.pdf
 
 ---
