@@ -22,5 +22,5 @@ blog_url:       /projects/artisanai/
 
 links:
 #  Paper: /assets/papers/25_CHI_Resonix.pdf
-
+doi: https://doi.org/10.1145/3772363.3798379
 ---

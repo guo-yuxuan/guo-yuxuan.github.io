@@ -22,7 +22,7 @@ authors:
   - Xin Tong#
 
 links:
-  DOI: https://doi.org/10.1145/3706599.3720247
+  doi: https://doi.org/10.1145/3706599.3720247
   #Paper: /assets/papers/25_CHI_Resonix.pdf
   Video: https://www.youtube.com/watch?v=Qo7UpzZh-zg
   #Unsplash: https://unsplash.com/photos/sliced-in-half-pineapple--_PLJZmHZzk
