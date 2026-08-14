@@ -9,7 +9,7 @@ pub_pre:        "Submitted to Visual Informatics"
 # pub_post:       'Under review.'
 #pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Poster</br></span>'
 pub_date:       
-cover: 
+cover:        /assets/images/projects/visbridge/fig1.png
 authors:
   - Yuxuan Guo
   - Haowei Xiong
@@ -20,6 +20,6 @@ has_blog:       false
 blog_url:       /projects/bridgevis/
 
 links:
- Paper: /assets/papers/VI_BridgeVis.pdf
+  doi: https://doi.org/10.1016/j.visinf.2026.100351
 
 ---
