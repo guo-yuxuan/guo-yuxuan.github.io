@@ -1,9 +1,8 @@
 ---
-title:  "Linking Quantitative Analysis and Qualitative Experience for Data
-Visualization in Virtual Reality"
+title:  "BridgeVis: Linking quantitative analysis and qualitative experience for data visualization in virtual reality"
 date:           2026-9-24 00:01:00 +0800
 selected:       true
-description:    "This project integrates interactive 2D charts into immersive VR scenes to tightly link precise quantitative analysis with visceral qualitative experience, introducing a three-dimension design space, four prototypes, and a user study showing no added cognitive load."
+# description:    ""
 pub:           Visual Informatics
 pub_pre:       ' <span class="badge badge-pill badge-publication badge-primary">Journal</span>'
 #pub_post:       'Under review.'
