@@ -3,7 +3,7 @@ title:  "BridgeVis: Linking quantitative analysis and qualitative experience for
 date:           2026-9-24 00:01:00 +0800
 selected:       true
 # description:    ""
-pub:           Visual Informatics
+pub:           " Visual Informatics"
 pub_pre:       ' <span class="badge badge-pill badge-publication badge-primary">Journal</span>'
 #pub_post:       'Under review.'
 #pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Poster</br></span>'

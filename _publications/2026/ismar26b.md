@@ -3,7 +3,7 @@ title:  "Designing Embodied Data Storytelling for Cultural Heritage in Virtual R
 date:           2026-9-1 00:01:00 +0800
 selected:       true
 # description:    ""
-pub:           IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)
+pub:           " IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)"
 pub_pre:       ' <span class="badge badge-pill badge-publication badge-success">Poster</span>'
 #pub_post:       'Under review.'
 #pub_last:       ' <span class="badge badge-pill badge-publication badge-success">Poster</br></span>'
