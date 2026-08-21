@@ -22,21 +22,23 @@ short_bio_text_justify: false
 short_bio: >-
   <p>
     Hi, I am Yuxuan Guo. I have obtained my Master of Science degree in Design and Digital Media from the University of Edinburgh. 
-My research interests lie at the intersection of Extended Reality (XR), Human-Computer Interaction (HCI), and Human-Centered AI, with two main directions:
+    My research interests lie at the intersection of Extended Reality (XR), Human-Computer Interaction (HCI), and Human-Centered AI, with two main directions:
    
-   <Ul>
-  <li style="margin-bottom: 10px;">
-    <strong>Immersive &amp; Embodied Interaction</strong><br>
-    Exploring how XR can support information understanding, visualization, and storytelling.
-  </li>
+    <ul>
+      <li style="margin-bottom: 10px;">
+        <strong>Immersive &amp; Embodied Interaction</strong><br>
+        Exploring how XR can support information understanding, visualization, and storytelling.
+      </li>
 
-  <li>
-    <strong>Situated Human-AI Interaction</strong><br>
-    Investigating how AI can understand users through multimodal signals, adapt to their states and contexts, and provide timely support in immersive and real-world environments.
-  </li>
-  </Ul>
-   <br>
-   <strong><span style="color:red;">I am looking for PhD positions for 26/27 admission.</span></strong> Please don’t hesitate to contact me for any collaboration opportunities or inquiries.
+      <li>
+        <strong>Situated Human-AI Interaction</strong><br>
+        Investigating how AI can understand users through multimodal signals, adapt to their states and contexts, and provide timely support in immersive and real-world environments.
+      </li>
+    </ul>
+
+    <br>
+    <strong><span style="color:red;">I am looking for PhD positions for 26/27 admission.</span></strong>
+    Please don’t hesitate to contact me for any collaboration opportunities or inquiries.
   </p>
 
 portrait_url: /assets/images/avatar.jpeg
