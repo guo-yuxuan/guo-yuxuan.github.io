@@ -5,7 +5,7 @@
 发布到 GitHub Pages 后，访问：
 
 ```text
-https://yuxuanguo.com/admin/
+https://yuxuanguo.com/admin1261/
 ```
 
 ## 第一次登录
@@ -15,7 +15,7 @@ https://yuxuanguo.com/admin/
 3. 在 **Repository access** 中选择 **Only select repositories**，然后选择 `guo-yuxuan.github.io`。
 4. 在 **Repository permissions** 中，将 **Contents** 设置为 **Read and write**；其余权限保持默认。
 5. 设置适当的令牌有效期，创建并复制令牌。
-6. 打开 `/admin/`，粘贴令牌并登录。
+6. 打开 `/admin1261/`，粘贴令牌并登录。
 
 令牌只保存在当前浏览器标签页的 `sessionStorage` 中，不会写入 GitHub 仓库，也不会发送给除 `api.github.com` 以外的服务。关闭标签页或点击“退出登录”后，需要重新输入令牌。
 
@@ -33,4 +33,4 @@ https://yuxuanguo.com/admin/
 
 ## 移除后台
 
-不再需要时，删除整个 `admin/` 目录并提交即可。已通过后台发布的个人资料、论文、项目、新闻和图片都不会受到影响。
+不再需要时，删除整个 `admin1261/` 目录并提交即可。已通过后台发布的个人资料、论文、项目、新闻和图片都不会受到影响。

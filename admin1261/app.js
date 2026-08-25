@@ -792,7 +792,7 @@
 
     return `${pageHeading("版本记录", "后台保存的每一次修改都是独立的 Git 提交，可以在 GitHub 中查看和恢复。", `<a class="button button-secondary" href="https://github.com/${encodeURIComponent(state.session.owner)}/${encodeURIComponent(state.session.repository)}/commits/${encodeURIComponent(state.session.branch)}" target="_blank" rel="noopener noreferrer">在 GitHub 查看全部记录 ↗</a>`)}
       <section class="card">${content}</section>
-      <div class="notice notice-info notice-spaced">以后如果不再需要这个后台，只需删除仓库中的 <strong>admin/</strong> 目录；通过后台发布的论文、项目和图片都会保留。</div>`;
+      <div class="notice notice-info notice-spaced">以后如果不再需要这个后台，只需删除仓库中的 <strong>admin1261/</strong> 目录；通过后台发布的论文、项目和图片都会保留。</div>`;
   }
 
   function linksToText(links) {
