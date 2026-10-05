@@ -1,0 +1,29 @@
+# Files shown on /info.
+# Add an item under a group to publish another file.
+# kind: pdf | image | file
+groups:
+  - name: Profile
+    items:
+      - id: cv
+        title: Curriculum Vitae
+        note: Current CV
+        url: /assets/YuxuanGuoCV.pdf
+        kind: pdf
+      - id: msc-transcript
+        title: MSc Transcript
+        note: University of Edinburgh
+        url: /assets/MSc_transcript.pdf
+        kind: pdf
+      - id: beng-transcript
+        title: B.Eng Transcript
+        note: Undergraduate transcript
+        url: /assets/B.eng_transcript.pdf
+        kind: pdf
+
+  # - name: Papers
+  #   items:
+  #     - id: ismar26b
+  #       title: Designing Embodied Data Storytelling for Cultural Heritage in Virtual Reality
+  #       note: ISMAR-Adjunct 2026
+  #       url: /assets/papers/ismar26b.pdf
+  #       kind: pdf

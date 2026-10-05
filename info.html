@@ -1,0 +1,372 @@
+---
+layout: default
+title: Info
+navbar_title: Info
+---
+
+<div class="info-page">
+    <header class="info-header">
+        <h1 class="h2 mb-2">Info</h1>
+        <p>Select a document to read it here, or open it in a new tab.</p>
+    </header>
+
+    {% if site.data.info.groups %}
+    <div class="info-layout">
+        <aside class="info-list" aria-label="Documents">
+            {% for group in site.data.info.groups %}
+            <section class="info-group">
+                <h2>{{ group.name }}</h2>
+                <ul>
+                    {% for item in group.items %}
+                    <li>
+                        <button
+                            type="button"
+                            class="info-item"
+                            data-id="{{ item.id }}"
+                            data-title="{{ item.title | escape }}"
+                            data-url="{{ item.url | relative_url }}"
+                            data-kind="{{ item.kind | default: 'file' }}"
+                            data-note="{{ item.note | escape }}"
+                            aria-pressed="false">
+                            <span class="info-item-icon" aria-hidden="true">
+                                {% case item.kind %}
+                                {% when "pdf" %}
+                                <i class="fas fa-file-pdf"></i>
+                                {% when "image" %}
+                                <i class="fas fa-file-image"></i>
+                                {% else %}
+                                <i class="fas fa-file"></i>
+                                {% endcase %}
+                            </span>
+                            <span class="info-item-body">
+                                <span class="info-item-title">
+                                    {{ item.title }}
+                                    <span class="info-kind">{{ item.kind | default: "file" | upcase }}</span>
+                                </span>
+                                {% if item.note %}
+                                <span class="info-item-note">{{ item.note }}</span>
+                                {% endif %}
+                            </span>
+                        </button>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            {% endfor %}
+            <p class="info-list-note">The publication list can be viewed on the <a href="{{ '/' | relative_url }}">homepage</a>.</p>
+        </aside>
+
+        <section class="info-viewer" aria-live="polite">
+            <div class="info-viewer-bar">
+                <div class="info-viewer-meta">
+                    <div class="info-viewer-title" id="info-viewer-title">Select a file</div>
+                    <div class="info-viewer-note" id="info-viewer-note"></div>
+                </div>
+                <div class="info-viewer-actions">
+                    <a id="info-open" class="btn btn-sm btn-outline-secondary" target="_blank" rel="noopener" hidden>Open</a>
+                    <a id="info-download" class="btn btn-sm btn-outline-secondary" download hidden>Download</a>
+                </div>
+            </div>
+            <div class="info-viewer-stage" id="info-viewer-stage">
+                <p class="info-empty">Choose a document from the list to preview it.</p>
+            </div>
+        </section>
+    </div>
+    {% else %}
+    <p class="text-muted">No documents yet. Add them in <code>_data/info.yml</code>.</p>
+    {% endif %}
+</div>
+
+<style>
+    .info-header p {
+        color: #6c757d;
+        max-width: 40rem;
+    }
+
+    .info-layout {
+        display: grid;
+        grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+        gap: 1rem;
+        align-items: start;
+    }
+
+    .info-list,
+    .info-viewer {
+        background: #fff;
+        border-radius: 0.8rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+
+    .info-list {
+        padding: 0.65rem;
+        max-height: calc(100vh - 8rem);
+        overflow: auto;
+        position: sticky;
+        top: 5.5rem;
+    }
+
+    .info-group + .info-group {
+        margin-top: 0.85rem;
+    }
+
+    .info-group h2 {
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #6c757d;
+        margin: 0.4rem 0.55rem 0.35rem;
+    }
+
+    .info-group ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .info-item {
+        width: 100%;
+        display: flex;
+        gap: 0.7rem;
+        align-items: flex-start;
+        text-align: left;
+        border: 0;
+        background: transparent;
+        border-radius: 0.6rem;
+        padding: 0.7rem 0.6rem;
+        cursor: pointer;
+        color: #2c3e50;
+    }
+
+    .info-item:hover,
+    .info-item:focus {
+        background: #f4f7fb;
+        outline: none;
+    }
+
+    .info-item.is-active {
+        background: #e8f2fb;
+    }
+
+    .info-item-icon {
+        flex: 0 0 auto;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.45rem;
+        background: #f1f3f5;
+        color: #b3392c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .info-item.is-active .info-item-icon {
+        background: #fff;
+    }
+
+    .info-item-body {
+        min-width: 0;
+    }
+
+    .info-item-title {
+        display: block;
+        font-weight: 700;
+        line-height: 1.35;
+    }
+
+    .info-kind {
+        display: inline-block;
+        margin-left: 0.3rem;
+        padding: 0.05rem 0.35rem;
+        border: 1px solid #dee2e6;
+        border-radius: 999px;
+        color: #6c757d;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        vertical-align: 0.15em;
+    }
+
+    .info-item-note {
+        display: block;
+        margin-top: 0.15rem;
+        color: #6c757d;
+        font-size: 0.85rem;
+        line-height: 1.35;
+    }
+
+    .info-list-note {
+        margin: 0.85rem 0.55rem 0.45rem;
+        color: #6c757d;
+        font-size: 0.85rem;
+        line-height: 1.45;
+    }
+
+    .info-list-note a {
+        color: #3498db;
+    }
+
+    .info-viewer {
+        min-height: calc(100vh - 8rem);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .info-viewer-bar {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .info-viewer-meta {
+        min-width: 0;
+    }
+
+    .info-viewer-title {
+        font-weight: 700;
+        line-height: 1.35;
+    }
+
+    .info-viewer-note {
+        color: #6c757d;
+        font-size: 0.85rem;
+    }
+
+    .info-viewer-actions {
+        display: flex;
+        gap: 0.4rem;
+        flex-shrink: 0;
+    }
+
+    .info-viewer-stage {
+        flex: 1 1 auto;
+        min-height: 62vh;
+        background: #f8f9fa;
+    }
+
+    .info-viewer-stage iframe,
+    .info-viewer-stage img {
+        width: 100%;
+        height: 70vh;
+        min-height: 62vh;
+        border: 0;
+        display: block;
+        background: #fff;
+        object-fit: contain;
+    }
+
+    .info-empty {
+        margin: 0;
+        padding: 2rem 1.25rem;
+        color: #6c757d;
+    }
+
+    @media (max-width: 899px) {
+        .info-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .info-list {
+            position: static;
+            max-height: none;
+        }
+
+        .info-viewer {
+            min-height: 0;
+            scroll-margin-top: 5.25rem;
+        }
+
+        .info-viewer-bar {
+            flex-wrap: wrap;
+        }
+
+        .info-viewer-actions .btn {
+            min-height: 2.25rem;
+        }
+
+        .info-viewer-stage,
+        .info-viewer-stage iframe,
+        .info-viewer-stage img {
+            min-height: 70vh;
+            height: 70vh;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var items = Array.prototype.slice.call(document.querySelectorAll(".info-item"));
+        var stage = document.getElementById("info-viewer-stage");
+        var titleEl = document.getElementById("info-viewer-title");
+        var noteEl = document.getElementById("info-viewer-note");
+        var openLink = document.getElementById("info-open");
+        var downloadLink = document.getElementById("info-download");
+        var viewer = document.querySelector(".info-viewer");
+        if (!items.length || !stage) return;
+
+        function select(button, options) {
+            options = options || {};
+            items.forEach(function (el) {
+                el.classList.remove("is-active");
+                el.setAttribute("aria-pressed", "false");
+            });
+            button.classList.add("is-active");
+            button.setAttribute("aria-pressed", "true");
+
+            var url = button.getAttribute("data-url");
+            var title = button.getAttribute("data-title") || "Document";
+            var note = button.getAttribute("data-note") || "";
+            var kind = button.getAttribute("data-kind") || "file";
+
+            titleEl.textContent = title;
+            noteEl.textContent = note;
+            openLink.hidden = false;
+            openLink.href = url;
+            downloadLink.hidden = false;
+            downloadLink.href = url;
+
+            stage.textContent = "";
+            if (kind === "image") {
+                var img = document.createElement("img");
+                img.src = url;
+                img.alt = title;
+                stage.appendChild(img);
+            } else if (kind === "pdf") {
+                var frame = document.createElement("iframe");
+                frame.src = url;
+                frame.title = title;
+                stage.appendChild(frame);
+            } else {
+                var message = document.createElement("p");
+                message.className = "info-empty";
+                message.textContent = "Preview is not available for this file. Use Open to view it.";
+                stage.appendChild(message);
+            }
+
+            if (options.updateHash) {
+                history.replaceState(null, "", "#" + button.getAttribute("data-id"));
+            }
+            if (options.scroll && window.matchMedia("(max-width: 899px)").matches && viewer) {
+                viewer.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+
+        items.forEach(function (button) {
+            button.addEventListener("click", function () {
+                select(button, { updateHash: true, scroll: true, fromClick: true });
+            });
+        });
+
+        var initial = null;
+        if (location.hash.length > 1) {
+            var id = decodeURIComponent(location.hash.slice(1));
+            initial = items.filter(function (el) {
+                return el.getAttribute("data-id") === id;
+            })[0];
+        }
+        select(initial || items[0], { updateHash: false, scroll: false });
+    });
+</script>
