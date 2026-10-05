@@ -11,7 +11,7 @@ groups:
         kind: pdf
       - id: msc-transcript
         title: MSc Transcript
-        note: University of Edinburgh
+        note: Postgraduate transcript
         url: /assets/MSc_transcript.pdf
         kind: pdf
       - id: beng-transcript
